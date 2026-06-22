@@ -195,7 +195,7 @@
         numberStep: function(now, tween) {
             var value = Math.floor(now);
 
-            if (num == 30 || num == 60 || num == 50) {
+            if (num == 30) {
                 $(tween.elem).text(value + '+');
             } else {
                 $(tween.elem).text(value);
@@ -203,6 +203,7 @@
         }
     }, 7000);
 });
+
 		}
 
 	}, { offset: '95%' });

@@ -176,39 +176,30 @@
 	
 
 	var counter = function() {
-	
-	$('#section-counter, .hero-wrap, .ftco-counter, .ftco-about').waypoint(function(direction) {
+		
+		$('#section-counter, .hero-wrap, .ftco-counter, .ftco-about').waypoint( function( direction ) {
 
-		if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
+			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
 
-			$('.number').each(function() {
-    var $this = $(this),
-        num = $this.data('number');
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.number').each(function(){
+					var $this = $(this),
+						num = $this.data('number');
+						console.log(num);
+					$this.animateNumber(
+					  {
+					    number: num,
+					    numberStep: comma_separator_number_step
+					  }, 7000
+					);
+				});
+				
+			}
 
-    if (num == 1) {
-        $this.text('1+');
-        return;
-    }
+		} , { offset: '95%' } );
 
-    $this.animateNumber({
-        number: num,
-        numberStep: function(now, tween) {
-            var value = Math.floor(now);
-
-            if (num == 30 || num == 60 || num == 50) {
-                $(tween.elem).text(value + '+');
-            } else {
-                $(tween.elem).text(value);
-            }
-        }
-    }, 7000);
-});
-		}
-
-	}, { offset: '95%' });
-
-}
-counter();
+	}
+	counter();
 
 
 	var contentWayPoint = function() {
