@@ -181,28 +181,7 @@
 
 		if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
 
-			$('.number').each(function() {
-    var $this = $(this),
-        num = $this.data('number');
-
-    if (num == 1) {
-        $this.text('1+');
-        return;
-    }
-
-    $this.animateNumber({
-        number: num,
-        numberStep: function(now, tween) {
-            var value = Math.floor(now);
-
-            if (num == 30 || num == 60 || num == 50) {
-                $(tween.elem).text(value + '+');
-            } else {
-                $(tween.elem).text(value);
-            }
-        }
-    }, 7000);
-});
+			
 		}
 
 	}, { offset: '95%' });
